@@ -1,0 +1,165 @@
+/* Themes and defaults */
+
+@custom-media --vw-sm (max-width: 26.56em);
+@custom-media --vw-md (max-width: 48em);
+@custom-media --vw-lg (max-width: 64em);
+@custom-media --vw-xl (max-width: 90em);
+
+@layer global {
+  :root {
+
+    /* Colors */
+    --color-primary: hsl(187deg 78% 46%);
+    --color-accent: hsl(26deg 79% 56%);
+    --color-silver: hsl(225deg 15% 50%);
+    --color-silver-600: hsl(226deg 24% 62%);
+    --color-default-black: hsl(216deg 9% 11%);
+    --color-default-white: hsl(0deg 0% 85%);
+    --color-gray-800: hsl(214deg 9% 15%);
+    --color-gray-700: hsl(210deg 5% 24%);
+    --color-gray-600: hsl(214deg 9% 35%);
+    --color-gray-500: hsl(214deg 9% 45%);
+    --color-gray-400: hsl(214deg 9% 55%);
+    --color-gray-300: hsl(214deg 9% 65%);
+    --color-gray-200: hsl(214deg 9% 75%);
+    --color-gray-100: hsl(214deg 9% 85%);
+    --text-color-default: var(--color-default-white);
+    --paragraph-color: hsl(0deg 0% 80%);
+    --code-bg-color: hsl(220deg 13% 18%);
+    --code-highlight-color: hsl(187deg 78% 46% / 5%);
+
+    /* Typography */
+    --text-xsm: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 2.5rem;
+    --text-3xl: 3.75rem;
+
+    --fw-normal: 500;
+    --fw-bold: 700;
+
+    --font-sans: 'Source Sans Pro', -apple-system, 'Segoe UI',
+      helvetica sans-serif;
+    --font-title: 'Raleway', sans-serif;
+    --font-serif: 'Roboto Slab', palatino, georgia, serif;
+    --font-mono: 'Source Code Pro', 'SF Mono', consolas, menlo, monospace;
+
+    /* Borders */
+    --radius-default: 4px;
+    --radius-full: 9999px;
+
+    --border-width: 1px;
+    --border-style: solid;
+    --border-color: rgb(0 0 0 / 10%);
+    --border: var(--border-width) var(--border-style) var(--border-color);
+
+    /* Shadows */
+    --elevation-1: 0 1px 3px rgb(0 0 0 / 20%);
+    --elevation-2: 0 4px 4px rgb(0 0 0 / 23%);
+    --elevation-3: 0 4px 10px rgb(0 0 0 / 7%);
+    --elevation-4: 0 10px 19px rgb(0 0 0 / 27%);
+    --elevation-5: 0 20px 25px -5px rgb(0 0 0 / 30%);
+
+    /* Z-layers */
+    --z-10: 10;
+    --z-100: 100;
+    --z-base: 1;
+    --z-hide: -1;
+
+    /* Others */
+    --scrollbar-bg: hsl(214deg 9% 15%);
+    --scrollbar-thumb-color: hsl(225deg 15% 50%);
+    --scrollbar-border: var(--color-gray-800);
+    --selection: hsl(26deg 94% 54% / 50%);
+  }
+
+  body {
+    --base-font-size: 16px;
+
+    font-family: var(--font-sans);
+    font-size: var(--base-font-size);
+    accent-color: var(--color-silver);
+    background-color: var(--color-default-black);
+    color: var(--color-default-white);
+    color-scheme: light dark;
+    scrollbar-gutter: stable;
+    text-rendering: optimizelegibility;
+    color-rendering: optimizespeed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+  }
+
+  ::selection {
+    background: var(--selection);
+    color: var(--text-color-default);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+    font-family: var(--font-title);
+  }
+
+  a {
+    text-decoration: none;
+    transition: text-decoration-color 400ms ease-out;
+    color: var(--color-primary);
+  }
+
+  a:focus-visible {
+    outline: 2px dashed var(--color-primary);
+  }
+
+  a:not([href]) {
+    color: var(--text-color-default);
+    opacity: 0.8;
+    cursor: not-allowed;
+  }
+
+  a:not([class]):hover,
+  a[class=""]:hover,
+  abbr {
+    text-decoration-line: underline;
+    text-decoration-color: var(--color-accent);
+    text-decoration-thickness: 2px;
+    text-decoration-style: solid;
+    text-underline-offset: 0.3em;
+  }
+}
+
+@layer theme {
+  body[data-theme='light'] {
+    --color-light: hsl(228deg 33% 97%);
+    --text-color-default: var(--color-default-black);
+    --secondary-text-color: var(--color-silver);
+    --bg-color-primary-lighter: rgb(26 187 209 / 30%);
+    --bg-color-lighter: hsl(0deg 0% 97%);
+    --accent-color-lighter: hsl(225deg 31% 95%);
+    --scrollbar-bg: var(--accent-color-lighter);
+    --scrollbar-thumb-color: var(--color-gray-300);
+    --scrollbar-border: var(--color-gray-300);
+
+    background-color: var(--color-light);
+    color: var(--color-default-black);
+    transition-property: background-color, color;
+    transition-duration: 500ms;
+    transition-timing-function: ease-in-out;
+
+    & :is(footer, header) {
+      border-color: rgb(108 118 147 / 30%);
+    }
+  }
+
+  body[data-theme='dark'] {
+    img {
+      filter: brightness(0.8);
+    }
+  }
+}
