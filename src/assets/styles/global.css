@@ -83,7 +83,7 @@
     accent-color: var(--color-silver);
     background-color: var(--color-default-black);
     color: var(--color-default-white);
-    color-scheme: light dark;
+    color-scheme: light;
     scrollbar-gutter: stable;
     text-rendering: optimizelegibility;
     color-rendering: optimizespeed;
@@ -157,9 +157,9 @@
     }
   }
 
-  body[data-theme='dark'] {
+  /* body[data-theme='dark'] {
     img {
       filter: brightness(0.8);
     }
-  }
+  } */
 }

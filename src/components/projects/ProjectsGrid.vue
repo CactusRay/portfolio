@@ -1,12 +1,12 @@
 <template>
   <section id="projects" class="projects-grid container">
-    <h3>Projects</h3>
+    <h3>{{ $t('projectsTitle') }}</h3>
     <ProjectCard
       v-for="project in highlightedProjects"
-      :key="project.title"
+      :key="project.title[locale] || project.title"
       :thumbnail="project.thumbnail"
-      :title="project.title"
-      :description="project?.description"
+      :title="typeof project.title === 'object' ? project.title[locale] : project.title"
+      :description="typeof project.description === 'object' ? project.description[locale] : project.description"
       :tags="project.tags"
       :github="project.github"
     />
@@ -14,8 +14,10 @@
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n'
 import projects from '@content/projects/projects.json'
 
+const { locale } = useI18n()
 const highlightedProjects = Object.values(projects).filter(
   (project) => project.pinned
 )

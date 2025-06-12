@@ -25,6 +25,7 @@
     "lozad": "^1.16.0",
     "vue": "^3.5.13",
     "vue-gtag": "^3.4.0",
+    "vue-i18n": "^11.1.5",
     "vue-router": "^4.5.1",
     "vuefire": "^3.2.1"
   },
@@ -54,7 +55,7 @@
     "vite-plugin-pwa": "^0.21.1",
     "vite-plugin-vue-devtools": "^7.7.1",
     "vite-plugin-vue-layouts": "^0.11.0",
-    "vite-ssg-sitemap": "^0.8.1",
-    "vite-ssg": "^25.0.0"
+    "vite-ssg": "^25.0.0",
+    "vite-ssg-sitemap": "^0.8.1"
   }
 }

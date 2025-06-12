@@ -2,23 +2,24 @@
   <footer class="footer">
     <div class="container">
       <p class="footer__copyright">
-        <em>Made with ♥ by Jeferson</em>
-        <span>@2021 - Present. All rights reserved.</span>
       </p>
       <div class="built-tech">
-        <AppLink to="https://www.netlify.com/" aria-label="Hosted on Netlify" is-external>
-          <NetlifyLogoSVG />
-        </AppLink>
-        <AppLink to="https://vuejs.org/" aria-label="Built with Vue" title="Built with Vue.js" is-external>
-          <VueSVG />
-        </AppLink>
-        <AppLink to="https://www.github.com/" aria-label="Source Code on Github" is-external>
-          <OctocatSVG />
-        </AppLink>
+        <span style="display: inline-flex; align-items: center;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 0.5em;">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zm0 12H4V8.99l8 6.99 8-6.99V18z"/>
+          </svg>
+          Contact me: b19670630@gmail.com
+        </span>
       </div>
     </div>
   </footer>
 </template>
+
+<script>
+export default {
+  name: "AppFooter"
+};
+</script>
 
 <style scoped>
 .footer {

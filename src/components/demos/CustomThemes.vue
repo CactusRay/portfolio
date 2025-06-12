@@ -3,8 +3,8 @@
     <input id="warm" v-model="theme" type="radio" name="theme" value="warm" />
     <label for="warm">Warm</label>
 
-    <input id="dark" v-model="theme" type="radio" name="theme" value="dark" />
-    <label for="dark">Dark</label>
+    <!-- <input id="dark" v-model="theme" type="radio" name="theme" value="dark" />
+    <label for="dark">Dark</label> -->
 
     <input
       id="spacegray"
@@ -89,12 +89,12 @@ export default {
   margin-block-start: 10px;
 }
 
-[data-v-theme='dark'] {
+/* [data-v-theme='dark'] {
   --v-text-color: hsl(0deg 0% 100%);
   --v-bg-color: hsl(0deg 0% 0%);
   --v-accent-color: hsl(145deg 63% 49%);
   --v-font: var(--font-mono);
-}
+} */
 
 [data-v-theme='spacegray'] {
   --v-text-color: hsl(0deg 0% 100%);

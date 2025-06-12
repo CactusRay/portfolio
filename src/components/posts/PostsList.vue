@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="posts-list container">
     <h3 id="posts-heading">Latest Posts</h3>
     <PostPreview
@@ -7,7 +7,7 @@ v-for="article in topRecentArticles" :key="article.id" :title="article.title"
     <Button id="view-all-posts" variant="outline" href="/articles" aria-labelledby="view-all-posts posts-heading">View
       all</Button>
   </div>
-</template>
+</template> -->
 
 <script setup>
 import { useArticles } from '@/composables/useArticles';

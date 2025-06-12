@@ -16,12 +16,12 @@ onMounted(() => {
 
   if (!storedTheme) {
     const { matches: preferDarkScheme } = window.matchMedia(
-      '(prefers-color-scheme: dark)'
+      '(prefers-color-scheme: light)'
     )
     setAttrValue(
       document.body,
       'data-theme',
-      preferDarkScheme ? 'dark' : 'light'
+      'light'
     )
   } else {
     setAttrValue(document.body, 'data-theme', storedTheme)

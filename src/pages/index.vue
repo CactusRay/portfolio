@@ -8,6 +8,7 @@
 </template>
 
 <script setup>
+defineOptions({ name: 'HomePage' })
 import { onMounted } from 'vue'
 import lozad from 'lozad'
 import config from '@/config/siteconfig.json'

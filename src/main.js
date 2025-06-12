@@ -2,6 +2,9 @@ import { ViteSSG } from 'vite-ssg'
 import generatedRoutes from 'virtual:generated-pages'
 import { setupLayouts } from 'virtual:generated-layouts'
 import App from './App.vue'
+import { createI18n } from 'vue-i18n'
+import en from './locales/en.json'
+import zh from './locales/zh.json'
 
 import '@/assets/styles/reset.css'
 import '@/assets/styles/global.css'
@@ -22,6 +25,15 @@ export const createApp = ViteSSG(
     // install all modules under `modules/`
     Object.values(import.meta.glob('./modules/*.js', { eager: true })).forEach(
       (i) => i.install?.(ctx)
+    )
+    // 安裝 vue-i18n
+    ctx.app.use(
+      createI18n({
+        legacy: false,
+        locale: 'zh',
+        fallbackLocale: 'en',
+        messages: { en, zh }
+      })
     )
   }
 )

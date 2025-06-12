@@ -1,25 +1,39 @@
-# Logs
-logs
+# Node.js
+node_modules/
+dist/
+.cache/
 *.log
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
-.cache
-.DS_Store
-src/.temp
-node_modules
-dist
+# VSCode/IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
 
+# 環境設定
 .env
-.idea
-.vscode
-# Local Netlify folder
-.netlify
-draft/
-draft/*
-*:Zone.Identifier
+.env.*
+!.env.example
 
-.vite-ssg-temp
+# 作業系統
+.DS_Store
+Thumbs.db
+
+# Netlify
+.netlify/
+
+# Drafts or temp
+draft/
+src/.temp/
+.vite-ssg-temp/
+
+# Lock files (視團隊需求)
+# pnpm-lock.yaml
+
+# Others
+*.Zone.Identifier

@@ -5,41 +5,86 @@
         <picture>
           <img src="@/assets/img/profile.jpg" alt="me" width="140" height="190" loading="lazy" />
         </picture>
-        <h1 class="about-content__headline">About me</h1>
-
+        <h1 class="about-content__headline">{{ $t('aboutMe') }}</h1>
         <p>
-          👋 Hey! How are you?
-          I'm Jeferson. I'm a
-          <strong>software engineer</strong> dedicated to
-          <em> crafting </em> things for the web through coding.
+          {{ $t('hi') }}
+          <strong>{{ $t('jobTitle') }}</strong>，{{ $t('aboutDesc1') }}
         </p>
-        <p>
-          I wrote my first lines of code back in 2014 of HTML4, CSS and ES5
-          using just a notepad in a very low-end machine 😅. Like many people I
-          graduated a few years later and since then I've been on this adventure
-          into the world of programming.
-        </p>
-        <p>
-          I don't have "favorites", but I like to code on TypeScript, Elixir, Lua, and I'm starting to tinker with Rust.
-          I also like to think outside coding, such as prioritizing tasks/features, doing reviews, modeling and
-          providing the good
-          practices, fundamentals, and consistency throughout the code.
-        </p>
-        <p>I've worked on websites (both front-end, back-end), CLI's, and most recently mobile development (React
-          Native).</p>
-        <p>Personally, I'm into computers, ui design, games and anime (of course) :P</p>
+        <p v-html="$t('aboutDesc2')"></p>
+        <br>
+        <p v-html="$t('aboutDesc3')"></p>
       </article>
       <SocialMediaIcons boxed />
+      <section class="work-experience-blocks rounded-block">
+        <h1>{{ $t('workExperience') }}</h1><br>
+        <div class="job-block">
+          <h3>{{ $t('job1Title') }}</h3>
+          <p>{{ $t('job1Company') }}</p>
+          <ul>
+            <li v-for="(item, idx) in job1List" :key="idx" v-html="item"></li>
+          </ul>
+        </div>
+        <br>
+        <div class="job-block">
+          <h3>{{ $t('job2Title') }}</h3>
+          <p>{{ $t('job2Company') }}</p>
+          <ul>
+            <li v-for="(item, idx) in job2List" :key="idx" v-html="item"></li>
+          </ul>
+        </div>
+        <br>
+        <div class="job-block">
+          <h3>{{ $t('job3Title') }}</h3>
+          <p>{{ $t('job3Company') }}</p>
+          <ul>
+            <li v-for="(item, idx) in job3List" :key="idx" v-html="item"></li>
+          </ul>
+        </div>
+      </section>
+      <br>
+      <section class="skills-blocks rounded-block">
+        <h1>{{ $t('skills') }}</h1>
+        <br>
+        <div class="skill-block">
+          <h3>{{ $t('backend') }}</h3>
+          <p>{{ $t('backendSkills') }}</p>
+        </div>
+        <div class="skill-block">
+          <h3>{{ $t('frontend') }}</h3>
+          <p>{{ $t('frontendSkills') }}</p>
+        </div>
+        <div class="skill-block">
+          <h3>{{ $t('database') }}</h3>
+          <p>{{ $t('databaseSkills') }}</p>
+        </div>
+        <div class="skill-block">
+          <h3>{{ $t('versionControl') }}</h3>
+          <p>{{ $t('versionControlSkills') }}</p>
+        </div>
+        <div class="skill-block">
+          <h3>{{ $t('language') }}</h3>
+          <p>{{ $t('languageSkills') }}</p>
+        </div>
+      </section>
     </main>
   </div>
 </template>
 
 <script setup>
 import config from '../config/siteconfig.json'
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useRoute } from 'vue-router'
+const route = useRoute()
+
+const { locale, messages } = useI18n()
+
+const job1List = computed(() => messages.value[locale.value].job1List)
+const job2List = computed(() => messages.value[locale.value].job2List)
+const job3List = computed(() => messages.value[locale.value].job3List)
 
 const title = 'About me • Jeferson S. Brito'
 const { description } = config
-const route = useRoute()
 
 useHead({
   title,
@@ -71,9 +116,51 @@ meta:
 
 <style lang="css" scoped>
 .container {
-  flex-flow: row wrap;
-  padding: 3rem 0;
-  gap: 2.4rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.work-experience-blocks {
+  border: 2px solid #e0e0e0;
+  border-radius: 18px;
+  padding: 2rem 1.5rem;
+  background: #fff;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.04);
+  margin-top: 2rem;
+}
+
+.work-experience-blocks h1 {
+  text-align: center;
+}
+
+.work-experience-blocks ul {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.job-block {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.2rem 1rem;
+  background: #fafbfc;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.03);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.job-block:hover {
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.10);
+}
+
+.job-block p {
+  opacity: 0.7;
 }
 
 .about-content {
@@ -116,6 +203,39 @@ meta:
     max-width: 71ch;
     margin-top: 0.50em;
   }
+}
+
+.skills-blocks {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.2rem 1rem;
+  background: #fafbfc;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.03);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.skills-blocks h1 {
+  text-align: center;
+}
+
+.skill-block {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.2rem 1rem;
+  background: #fafbfc;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.03);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.skill-block:hover {
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.10);
+}
+
+.skill-block p {
+  opacity: 0.7;
+  margin: 0;
 }
 
 .binary-text-svg {

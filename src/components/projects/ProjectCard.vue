@@ -1,8 +1,7 @@
 <template>
   <div class="project-card">
     <figure class="project-thumbnail">
-      <img-lazy :src="thumbnail" :alt="`${title} project screenshot`" class="project-card__image" width="500"
-        height="200" />
+      <img :src="`/${thumbnail}`" :alt="title" class="project-card__image" width="500" height="200" />
     </figure>
     <div class="project-card__content">
       <div class="project-card__header">
@@ -11,8 +10,7 @@
       </div>
       <div class="project-card__footer">
         <TagGroup :tags="tags.split(',')" />
-        <AppLink :id="buttonId" variant="button" full is-external :to="github"
-          :aria-labelledby="`${titleId} ${buttonId}`">
+        <AppLink :id="buttonId" variant="button" full is-external :to="github" :aria-labelledby="`${titleId} ${buttonId}`">
           Github
         </AppLink>
       </div>
@@ -46,7 +44,9 @@ const props = defineProps({
   },
 })
 
-const titleSlug = props.title.toLowerCase().replaceAll(' ', '')
+const title = props.title
+const safeTitle = typeof title === 'string' ? title : ''
+const titleSlug = safeTitle.toLowerCase().replaceAll(' ', '')
 
 const titleId = computed(() => `title-${titleSlug}`)
 const buttonId = computed(() => `button-${titleSlug}`)
