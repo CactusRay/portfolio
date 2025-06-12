@@ -17,15 +17,15 @@
 const projects = [
   {
     title: 'toeic',
-    thumbnail: 'toeic.png'
+    thumbnail: 'toeic.jpg'
   },
   {
     title: 'scholarship',
-    thumbnail: 'scholarship.png'
+    thumbnail: 'scholarship.jpg'
   },
   {
     title: 'secondPlace',
-    thumbnail: 'second place.png'
+    thumbnail: 'second place.jpg'
   },
   // add more...
 ]

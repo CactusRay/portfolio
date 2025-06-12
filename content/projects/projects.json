@@ -1,7 +1,7 @@
 {
   "comment": {
     "order": 1,
-    "thumbnail": "comment.png",
+    "thumbnail": "comment.jpg",
     "title": {
       "zh": "股市討論區",
       "en": "Stock Forum"
@@ -16,7 +16,7 @@
   },
   "wp2": {
     "order": 2,
-    "thumbnail": "wp2_demo_75.png",
+    "thumbnail": "wp2_demo_75.jpg",
     "title": {
       "zh": "全端應用",
       "en": "Full Stack App"
@@ -31,7 +31,7 @@
   },
   "androidStudio": {
     "order": 3,
-    "thumbnail": "androidStudio.png",
+    "thumbnail": "androidStudio.jpg",
     "title": {
       "zh": "Kotlin Android Studio",
       "en": "Kotlin Android Studio"
@@ -46,7 +46,7 @@
   },
   "gomoku": {
     "order": 4,
-    "thumbnail": "gomoku.png",
+    "thumbnail": "gomoku.jpg",
     "title": {
       "zh": "gomoku五子棋",
       "en": "Gomoku"
