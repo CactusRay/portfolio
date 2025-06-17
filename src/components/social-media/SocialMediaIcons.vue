@@ -7,7 +7,7 @@
           fill="#F4F4F4" />
       </svg>
     </AppLink>
-    <AppLink is-external to="https://www.linkedin.com/in/ray-sun-b6566b277/" aria-label="My LinkedIn Account"
+    <AppLink is-external to="https://www.linkedin.com/in/wei-teng-sun-b6566b277/" aria-label="My LinkedIn Account"
       title="My LinkedIn">
       <svg width="30" height="30" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
