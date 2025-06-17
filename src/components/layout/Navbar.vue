@@ -11,7 +11,7 @@
               {{ $t('articles') }}
             </router-link>
           </li> -->
-          <li class="navbar-menu__item">
+          <li class="navbar-menu__item desktop-only">
             <router-link class="navbar-menu__link" to="/about-me">{{ $t('skills') }}</router-link>
           </li>
           <!-- <li class="navbar-menu__item">
@@ -22,11 +22,11 @@
           <li class="navbar-menu__item no-effect">
             <HamburgerMenu aria-controls="mobile-menu" @toggle="toggleMenu(true)" />
           </li>
-          <li class="navbar-menu__item no-effect">
+          <li class="navbar-menu__item no-effect theme-switcher-mobile-hide">
             <ThemeSwitcher variant="transform" />
           </li>
           <!-- 地球語言切換器 -->
-          <li class="navbar-menu__item no-effect">
+          <li class="navbar-menu__item no-effect desktop-only">
             <button class="lang-switcher globe-btn" @click="toggleLocale" :aria-label="$i18n.locale === 'zh' ? 'Switch to English' : '切換為中文'">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#3bb3f6" viewBox="0 0 256 256">
                 <path d="M128,24h0A104,104,0,1,0,232,128,104.12,104.12,0,0,0,128,24Zm88,104a87.61,87.61,0,0,1-3.33,24H174.16a157.44,157.44,0,0,0,0-48h38.51A87.61,87.61,0,0,1,216,128ZM102,168H154a115.11,115.11,0,0,1-26,45A115.27,115.27,0,0,1,102,168Zm-3.9-16a140.84,140.84,0,0,1,0-48h59.88a140.84,140.84,0,0,1,0,48ZM40,128a87.61,87.61,0,0,1,3.33-24H81.84a157.44,157.44,0,0,0,0,48H43.33A87.61,87.61,0,0,1,40,128ZM154,88H102a115.11,115.11,0,0,1,26-45A115.27,115.27,0,0,1,154,88Zm52.33,0H170.71a135.28,135.28,0,0,0-22.3-45.6A88.29,88.29,0,0,1,206.37,88ZM107.59,42.4A135.28,135.28,0,0,0,85.29,88H49.63A88.29,88.29,0,0,1,107.59,42.4ZM49.63,168H85.29a135.28,135.28,0,0,0,22.3,45.6A88.29,88.29,0,0,1,49.63,168Zm98.78,45.6a135.28,135.28,0,0,0,22.3-45.6h35.66A88.29,88.29,0,0,1,148.41,213.6Z"></path>
@@ -37,16 +37,15 @@
       </nav>
     </div>
     <MobileNavbar @close="toggleMenu(false)">
-      <li class="navbar-menu__item">
-        <router-link class="navbar-menu__link" to="/articles">
-          {{ $t('articles') }}
-        </router-link>
+      <li class="navbar-menu__item mobile-skills-block">
+        <router-link class="navbar-menu__link" to="/about-me">{{ $t('skills') }}</router-link>
       </li>
-      <li class="navbar-menu__item">
-        <router-link class="navbar-menu__link" to="/about-me">{{ $t('about') }}</router-link>
-      </li>
-      <li class="navbar-menu__item">
-        <router-link class="navbar-menu__link" to="/now"> /now </router-link>
+      <li>
+        <button class="lang-switcher mobile-lang-switcher globe-btn" @click="toggleLocale" :aria-label="$i18n.locale === 'zh' ? 'Switch to English' : '切換為中文'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#3bb3f6" viewBox="0 0 256 256">
+            <path d="M128,24h0A104,104,0,1,0,232,128,104.12,104.12,0,0,0,128,24Zm88,104a87.61,87.61,0,0,1-3.33,24H174.16a157.44,157.44,0,0,0,0-48h38.51A87.61,87.61,0,0,1,216,128ZM102,168H154a115.11,115.11,0,0,1-26,45A115.27,115.27,0,0,1,102,168Zm-3.9-16a140.84,140.84,0,0,1,0-48h59.88a140.84,140.84,0,0,1,0,48ZM40,128a87.61,87.61,0,0,1,3.33-24H81.84a157.44,157.44,0,0,0,0,48H43.33A87.61,87.61,0,0,1,40,128ZM154,88H102a115.11,115.11,0,0,1,26-45A115.27,115.27,0,0,1,154,88Zm52.33,0H170.71a135.28,135.28,0,0,0-22.3-45.6A88.29,88.29,0,0,1,206.37,88ZM107.59,42.4A135.28,135.28,0,0,0,85.29,88H49.63A88.29,88.29,0,0,1,107.59,42.4ZM49.63,168H85.29a135.28,135.28,0,0,0,22.3,45.6A88.29,88.29,0,0,1,49.63,168Zm98.78,45.6a135.28,135.28,0,0,0,22.3-45.6h35.66A88.29,88.29,0,0,1,148.41,213.6Z"></path>
+          </svg>
+        </button>
       </li>
     </MobileNavbar>
   </header>
@@ -240,10 +239,20 @@ body[data-theme='light'] {
   display: flex;
   align-items: center;
   transition: background 0.2s;
-  margin-left: -10px; /* 靠近左邊，數值可依實際需求微調 */
+  margin-left: -10px;
 }
 .lang-switcher.globe-btn:hover {
   background: #eaf6fb;
   border-radius: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  .theme-switcher-mobile-hide {
+    display: none !important;
+  }
+
+  .desktop-only {
+    display: none !important;
+  }
 }
 </style>

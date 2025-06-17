@@ -32,9 +32,9 @@ onMounted(() => {
 
 <style>
 .mobile-navbar {
-  --bg: hsl(220deg 13% 12% / 92%);
-
+  --bg: hsl(228deg 33% 97% / 92%);
   background-color: var(--bg);
+  color: var(--color-default-black);
   height: 100vh;
   height: 100dvh;
   position: fixed;
@@ -84,7 +84,7 @@ onMounted(() => {
   }
 
   .navbar-menu__link {
-    color: var(--color-gray-300);
+    color: var(--color-default-black);
   }
 
   .navbar-menu__item:hover .navbar-menu__link,
@@ -133,5 +133,23 @@ onMounted(() => {
     transform: translateX(0);
     opacity: 1;
   }
+}
+
+.mobile-lang-switcher {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.mobile-skills-block {
+  border: 2px solid #e0e0e0;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 1px 6px 0 rgba(0,0,0,0.04);
+  margin: 2.5rem 0 2.5rem 0;
+  padding: 1.2rem 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 </style>
