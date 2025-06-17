@@ -203,11 +203,11 @@ body[data-theme='light'] {
     }
   }
 
-  .navbar-menu {
+  /* .navbar-menu {
     & .navbar-menu__item:has(a) {
       display: none;
     }
-  }
+  } */
 }
 
 @media (--vw-sm) {

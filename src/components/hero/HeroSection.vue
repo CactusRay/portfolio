@@ -104,11 +104,11 @@ const { t } = useI18n()
   }
 }
 
-@media (--vw-lg) {
+/* @media (--vw-lg) {
   .hero-avatar {
     display: none;
   }
-}
+} */
 
 @media (--vw-sm) {
   .hero {
@@ -132,6 +132,24 @@ const { t } = useI18n()
 
   .social-media-icons a svg {
     max-width: 35px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    width: 100vw;
+    min-width: 0;
+    overflow-x: hidden;
+    position: relative;
+    padding: 1rem 0;
+  }
+  .hero-content {
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+  .hero-aside {
+    display: none;
   }
 }
 </style>
